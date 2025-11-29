@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Earn rewards by sharing your opinion through simple surveys. Verified partners, secure, and free to join."
+    />
+    <meta
+      name="keywords"
+      content="earn rewards, surveys, opinion sharing, gift cards, verified"
+    />
+    <title>Earn Rewards by Sharing Your Opinion</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        color: #111827;
+        background-color: #f9fafb;
+        overflow-x: hidden;
+      }
+      .hero {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
+        color: white;
+        overflow: hidden;
+      }
+      .hero-content {
+        z-index: 1;
+        max-width: 800px;
+        padding: 20px;
+        animation: fadeInUp 1s ease-out;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+      .hero p {
+        font-size: 1.25rem;
+        margin-bottom: 30px;
+      }
+      .cta-button {
+        display: inline-block;
+        background: #10b981;
+        color: white;
+        padding: 15px 30px;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+      .cta-button:hover {
+        background: #059669;
+        transform: translateY(-2px);
+      }
+      .trust-badges {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .badge {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 10px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+      }
+      .logos {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        opacity: 0.8;
+      }
+      .logo {
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+      .section {
+        padding: 80px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+      }
+      .section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .section h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+        color: #111827;
+        font-weight: 600;
+      }
+      .stats {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        background: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+      .stat {
+        text-align: center;
+        flex: 1;
+        min-width: 200px;
+        margin: 20px;
+      }
+      .stat i {
+        font-size: 2rem;
+        color: #2563eb;
+        margin-bottom: 10px;
+      }
+      .stat h3 {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+      }
+      .stat p {
+        color: #6b7280;
+      }
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+      .feature-card {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+      .feature-card:hover {
+        transform: translateY(-5px);
+      }
+      .feature-card i {
+        font-size: 3rem;
+        color: #10b981;
+        margin-bottom: 20px;
+      }
+      .how-it-works {
+        background: white;
+      }
+      .steps {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        position: relative;
+      }
+      .step {
+        position: relative;
+        text-align: center;
+        max-width: 250px;
+        background: #f9fafb;
+        padding: 30px 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .step:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+      .step-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, #2563eb, #10b981);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.8rem;
+        margin: 0 auto 20px;
+        box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+      }
+      .step-content h3 {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+        color: #111827;
+      }
+      .step-content p {
+        color: #6b7280;
+        font-size: 0.95rem;
+      }
+      .step:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -30px;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-left: 15px solid #10b981;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        animation: arrowPulse 2s infinite;
+      }
+      @keyframes arrowPulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+      .testimonials {
+        background: #f9fafb;
+      }
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+      .testimonial {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+      }
+      .testimonial:hover {
+        transform: translateY(-5px);
+      }
+      .testimonial-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        background: #e5e7eb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: #2563eb;
+      }
+      .testimonial p {
+        font-style: italic;
+        margin-bottom: 10px;
+      }
+      .testimonial-author {
+        font-weight: 500;
+        color: #6b7280;
+      }
+      .cta-section {
+        background: linear-gradient(135deg, #2563eb, #10b981);
+        color: white;
+        text-align: center;
+        padding: 80px 20px;
+      }
+      .cta-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+      }
+      .cta-section p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+      }
+      footer {
+        background: #111827;
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+      }
+      .footer-links {
+        margin-bottom: 20px;
+      }
+      .footer-links a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        transition: color 0.3s ease;
+      }
+      .footer-links a:hover {
+        color: #f59e0b;
+      }
+      .footer-note {
+        font-size: 0.9rem;
+        color: #9ca3af;
+        margin-top: 20px;
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+        .hero p {
+          font-size: 1rem;
+        }
+        .section h2 {
+          font-size: 2rem;
+        }
+        .stats {
+          flex-direction: column;
+        }
+        .steps {
+          flex-direction: column;
+          gap: 20px;
+        }
+        .step:not(:last-child)::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          bottom: -20px;
+          top: auto;
+          right: auto;
+          transform: translateX(-50%) rotate(90deg);
+          width: 0;
+          height: 0;
+          border-left: 10px solid #10b981;
+          border-top: 7px solid transparent;
+          border-bottom: 7px solid transparent;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <canvas
+        id="particles-canvas"
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 0;
+        "
+      ></canvas>
+      <div class="hero-content">
+        <h1>Earn Rewards by Sharing Your Opinion</h1>
+        <p>
+          Answer simple surveys and receive points redeemable for gift cards and
+          rewards.
+        </p>
+        <a
+          href="https://www.lnksforyou.com/view.php?id=5542275&pub=3318259"
+          class="cta-button"
+          >Start Now</a
+        >
+        <div class="trust-badges">
+          <div class="badge"><i class="fas fa-shield-alt"></i> Secure</div>
+          <div class="badge">
+            <i class="fas fa-check-circle"></i> Verified Partners
+          </div>
+          <div class="badge">
+            <i class="fas fa-dollar-sign"></i> Free to Join
+          </div>
+        </div>
+        <div class="logos">
+          <div class="logo">SurveyPartners</div>
+          <div class="logo">OpinionHub</div>
+          <div class="logo">TrustedRewards</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stats" class="section">
+      <div class="stats">
+        <div class="stat">
+          <i class="fas fa-users"></i>
+          <h3>125k+ Verified Users</h3>
+          <p>Join a growing community</p>
+        </div>
+        <div class="stat">
+          <i class="fas fa-dollar-sign"></i>
+          <h3>$1.00–$5.00 per Survey</h3>
+          <p>Average reward amount</p>
+        </div>
+        <div class="stat">
+          <i class="fas fa-clock"></i>
+          <h3>24–48 Hours</h3>
+          <p>Typical payout time</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <h2>Why Participate?</h2>
+      <div class="features">
+        <div class="feature-card">
+          <i class="fas fa-eye"></i>
+          <h3>Transparent Rewards</h3>
+          <p>Users see their points and payouts with no hidden steps.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-clock"></i>
+          <h3>Short Surveys</h3>
+          <p>Most surveys take 3–7 minutes to complete.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-mobile-alt"></i>
+          <h3>Works Anywhere</h3>
+          <p>Compatible with mobile devices, tablets, and desktop.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="section how-it-works">
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-icon">1</div>
+          <div class="step-content">
+            <h3>Create your account in less than 1 minute.</h3>
+            <p>Sign up quickly and securely.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-icon">2</div>
+          <div class="step-content">
+            <h3>Get matched with surveys based on your profile.</h3>
+            <p>Receive relevant opportunities.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-icon">3</div>
+          <div class="step-content">
+            <h3>Earn points and redeem them for rewards.</h3>
+            <p>Exchange for gift cards and more.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="section testimonials">
+      <h2>What Users Say</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+          <p>
+            "I complete 1–2 surveys during my breaks. It doesn’t make you rich,
+            but the gift cards are a nice bonus."
+          </p>
+          <div class="testimonial-author">Sarah M. – Toronto</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+          <p>"Simple and legit. Payments usually arrive within 24 hours."</p>
+          <div class="testimonial-author">Daniel R. – Vancouver</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+          <p>"Great for earning small rewards in my free time."</p>
+          <div class="testimonial-author">Maya L. – Calgary</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>Ready to Start?</h2>
+      <p>Takes less than 60 seconds — free forever.</p>
+      <a
+        href="https://www.lnksforyou.com/view.php?id=5542275&pub=3318259"
+        class="cta-button"
+        >Begin Earning Rewards</a
+      >
+    </section>
+
+    <footer>
+      <div class="footer-links">
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#terms">Terms of Use</a>
+        <a href="#support">Support</a>
+      </div>
+      <div class="footer-note">
+        This site participates in promotional survey programs.
+      </div>
+    </footer>
+
+    <script>
+      // Particle system
+      const canvas = document.getElementById("particles-canvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      let particles = [];
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 3 + 1;
+          this.speedX = Math.random() * 2 - 1;
+          this.speedY = Math.random() * 2 - 1;
+        }
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+          if (this.x > canvas.width) this.x = 0;
+          if (this.x < 0) this.x = canvas.width;
+          if (this.y > canvas.height) this.y = 0;
+          if (this.y < 0) this.y = canvas.height;
+        }
+        draw() {
+          ctx.fillStyle = "rgba(255,255,255,0.1)";
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      for (let i = 0; i < 100; i++) {
+        particles.push(new Particle());
+      }
+
+      function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p) => {
+          p.update();
+          p.draw();
+        });
+        requestAnimationFrame(animateParticles);
+      }
+
+      animateParticles();
+
+      window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+
+      // Section animations
+      const sections = document.querySelectorAll(".section");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      sections.forEach((section) => {
+        observer.observe(section);
+      });
+    </script>
+  </body>
+</html>
